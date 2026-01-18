@@ -51,6 +51,7 @@ The platform is built with **Node.js**, **React.js**, and **PostgreSQL**, fully 
 +----------------------+
 | id (UUIDv7, PK)      |
 | scrape_job_id (FK)   |
+| title                |
 | url                  |
 | status               |
 | error_message        |
@@ -100,4 +101,72 @@ media-scraper/
 │
 ├── docker-compose.yml
 └── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+- Docker and Docker Compose
+- PostgreSQL (or use the provided Docker container)
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+```
+
+### Environment Setup
+
+The service needs environment variables to connect to the database. When running with Docker Compose, these are provided in the docker-compose.yml file. For local development, you may need to create a `.env` file with:
+
+```
+# Service Configuration
+PORT=3000 -- Specify the port the backend service will run on
+
+# Database Configuration
+DB_HOST=localhost
+DB_PORT=5433
+DB_USERNAME=postgres
+DB_PASSWORD=123456
+DB_NAME=postgres
+```
+
+### Running the Service
+
+```bash
+# Development mode
+pnpm run start:dev
+
+# Production mode
+pnpm run build
+pnpm run start:prod
+```
+
+## Database Migrations
+
+The app service uses TypeORM for the ORM and database migrations.
+
+### Migration layout
+
+- Entities live under `src/**/entities/*.entity.ts`
+- Migrations live under `src/migrations/*.ts`
+- Compiled JS goes to `dist/**` (TypeORM CLI runs against compiled JS)
+
+### Apply Migrations
+
+To apply existing migrations to your database:
+
+```bash
+# Apply pending migrations to the database
+npm run migration:run
+```
+
+To revert the last applied migration:
+
+```bash
+npm run migration:revert
 ```
