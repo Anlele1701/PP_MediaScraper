@@ -6,7 +6,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from "typeorm";
-import { WebPageEntity } from "./WebPageEntity";
+import { WebPageEntity } from "./web-page.entity";
 
 export enum MediaType {
   IMAGE = "IMAGE",
@@ -23,6 +23,9 @@ export class MediaAssetEntity {
     enum: MediaType,
   })
   type: MediaType;
+
+  @Column({ name: "title", nullable: true })
+  title?: string;
 
   @Column({ name: "media_url" })
   mediaUrl: string;

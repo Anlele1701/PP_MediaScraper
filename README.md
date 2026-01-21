@@ -53,8 +53,6 @@ The platform is built with **Node.js**, **React.js**, and **PostgreSQL**, fully 
 | scrape_job_id (FK)   |
 | title                |
 | url                  |
-| status               |
-| error_message        |
 | created_at           |
 +----------+-----------+
            |
@@ -66,6 +64,7 @@ The platform is built with **Node.js**, **React.js**, and **PostgreSQL**, fully 
 +----------------------+
 | id (UUIDv7, PK)      |
 | web_page_id (FK)     |
+| title                |
 | type (IMAGE/VIDEO)   |
 | media_url            |
 | created_at           |

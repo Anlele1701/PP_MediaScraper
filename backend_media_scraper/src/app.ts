@@ -11,7 +11,7 @@ const app = express();
 const port = Number(process.env.PORT) || 3000;
 
 // Import routes
-const mediaRoutes = require("./routes/media.route");
+import mediaRoutes from "./routes/media.route";
 
 // Middleware
 app.use(cors());

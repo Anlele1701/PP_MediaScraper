@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { MediaService } from "../services/MediaService";
+import { MediaService } from "../services/media.service";
 
 export class MediaController {
   constructor(private readonly mediaService = new MediaService()) {}
@@ -11,7 +11,7 @@ export class MediaController {
       return res.status(400).json({ error: "urls array is required" });
     }
 
-    // const results = await this.mediaService.scrapeWebPage(urls);
-    res.json({ null: "yes" });
+    const results = await this.mediaService.scrapeMultiplePages(urls);
+    res.json({ results });
   }
 }

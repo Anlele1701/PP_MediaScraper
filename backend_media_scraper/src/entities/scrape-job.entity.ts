@@ -1,4 +1,3 @@
-// src/entities/ScrapeJob.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,7 +5,7 @@ import {
   CreateDateColumn,
   OneToMany,
 } from "typeorm";
-import { WebPageEntity } from "./WebPageEntity";
+import { WebPageEntity } from "./web-page.entity";
 
 @Entity({ name: "scrape_jobs" })
 export class ScrapeJobEntity {

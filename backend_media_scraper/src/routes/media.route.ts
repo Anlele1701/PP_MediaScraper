@@ -4,6 +4,6 @@ import { MediaController } from "../controllers/MediaController";
 const router = express.Router();
 const mediaController = new MediaController();
 
-router.post("/scrape", mediaController.scrape);
+router.post("/scrape", mediaController.scrape.bind(mediaController));
 
-module.exports = router;
+export default router;

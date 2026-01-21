@@ -7,8 +7,8 @@ import {
   OneToMany,
   JoinColumn,
 } from "typeorm";
-import { ScrapeJobEntity } from "./ScrapeJobEntity";
-import { MediaAssetEntity } from "./MediaAssetEntity";
+import { ScrapeJobEntity } from "./scrape-job.entity";
+import { MediaAssetEntity } from "./media-asset.entity";
 
 @Entity({ name: "web_pages" })
 export class WebPageEntity {
